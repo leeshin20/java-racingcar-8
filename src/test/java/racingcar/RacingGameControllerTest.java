@@ -30,4 +30,31 @@ public class RacingGameControllerTest {
         assertThat(highScore).isEqualTo(1);
         assertThat(firstCar.getRaceScore()).isEqualTo(highScore);
     }
+
+    @Test
+    void 우승자가_한명일_때_판정_테스트() {
+        ArrayList<Car> cars = new ArrayList<>();
+        cars.add(new Car("test"));
+        cars.add(new Car("test2"));
+        Car firstCar = cars.get(0);
+        Car SecondCar = cars.get(1);
+        firstCar.tryMoveForward(9);
+        ArrayList<String> winners = RacingGameController.findWinner(cars);
+        assertThat(winners).hasSize(1);
+        assertThat(winners).contains("test");
+    }
+
+    @Test
+    void 우승자가_여러명일_때_판정_테스트() {
+        ArrayList<Car> cars = new ArrayList<>();
+        cars.add(new Car("test"));
+        cars.add(new Car("test2"));
+        Car firstCar = cars.get(0);
+        Car SecondCar = cars.get(1);
+        firstCar.tryMoveForward(9);
+        SecondCar.tryMoveForward(9);
+        ArrayList<String> winners = RacingGameController.findWinner(cars);
+        assertThat(winners).hasSize(2);
+        assertThat(winners).contains("test", "test2");
+    }
 }
