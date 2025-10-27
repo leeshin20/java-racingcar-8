@@ -31,13 +31,13 @@ public class RacingGameController {
         Output.displayResult();
         for (int i = 0; i<numberOfAttempts; i++) {
             tryOneAttempt(cars);
+            Output.displayProgress(cars);
         }
     }
 
     public static void tryOneAttempt(ArrayList<Car> cars) {
         for (Car car : cars) {
             car.tryMoveForward(pickNumber());
-            Output.displayProgress(car);
         }
     }
 

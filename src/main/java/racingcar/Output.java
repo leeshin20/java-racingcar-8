@@ -15,7 +15,14 @@ public class Output {
         System.out.println("\n실행 결과");
     }
 
-    public static void displayProgress(Car car) {
+    public static void displayProgress(ArrayList<Car> cars) {
+        for (Car car : cars) {
+            displayAttempt(car);
+        }
+        System.out.print("\n");
+    }
+
+    public static void displayAttempt(Car car) {
         System.out.printf("%s : ",car.getName());
         for(int i=0; i<car.getRaceScore(); i++){
             System.out.print("-");
