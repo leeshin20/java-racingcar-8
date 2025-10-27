@@ -11,8 +11,8 @@ public class InputTest {
     void 자동차_이름_분할_테스트() {
         String names = "pobi,jun";
         ArrayList<String> result = Input.splitName(names);
-        assertThat(result).contains("pobi","jun");
-        assertThat(result).containsExactly("pobi","jun");
+        assertThat(result).contains("pobi", "jun");
+        assertThat(result).containsExactly("pobi", "jun");
     }
 
     @Test
