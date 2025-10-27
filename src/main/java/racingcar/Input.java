@@ -26,4 +26,20 @@ public class Input {
             }
         }
     }
+
+    public static Integer inputNumberOfAttempts() {
+        String number = Console.readLine();
+        checkNumber(number);
+        return Integer.parseInt(number);
+    }
+
+    public static void checkNumber(String number) {
+        if(!isNumber(number) || Integer.parseInt(number) <= 0){
+            throw new IllegalArgumentException("1 이상의 올바른 수를 입력해주세요.");
+        }
+    }
+
+    public static boolean isNumber(String number) {
+        return number.chars().allMatch(Character::isDigit);
+    }
 }
