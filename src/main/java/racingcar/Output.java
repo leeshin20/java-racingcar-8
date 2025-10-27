@@ -23,8 +23,8 @@ public class Output {
     }
 
     public static void displayAttempt(Car car) {
-        System.out.printf("%s : ",car.getName());
-        for(int i=0; i<car.getRaceScore(); i++){
+        System.out.printf("%s : ", car.getName());
+        for (int i = 0; i < car.getRaceScore(); i++) {
             System.out.print("-");
         }
         System.out.print("\n");
