@@ -1,5 +1,7 @@
 package racingcar;
 
+import java.util.ArrayList;
+
 public class Output {
     public static void promptCarNames() {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
@@ -11,5 +13,13 @@ public class Output {
 
     public static void displayResult() {
         System.out.println("\n실행 결과");
+    }
+
+    public static void displayProgress(Car car) {
+        System.out.printf("%s : ",car.getName());
+        for(int i=0; i<car.getRaceScore(); i++){
+            System.out.print("-");
+        }
+        System.out.print("\n");
     }
 }
