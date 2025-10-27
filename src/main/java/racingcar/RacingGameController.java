@@ -44,4 +44,15 @@ public class RacingGameController {
     public static Integer pickNumber() {
         return Randoms.pickNumberInRange(0, 9);
     }
+
+    public static Integer findHighScore(ArrayList<Car> cars) {
+        Integer highScore = 0;
+        for(Car car: cars) {
+            Integer score = car.getRaceScore();
+            if(score > highScore) {
+                highScore = score;
+            }
+        }
+        return highScore;
+    }
 }
