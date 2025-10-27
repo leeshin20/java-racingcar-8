@@ -8,6 +8,7 @@ public class RacingGameController {
 
     public static void startRace() {
         entryCar();
+        determineNumberOfAttempts();
     }
 
     public static void entryCar() {
@@ -16,5 +17,9 @@ public class RacingGameController {
         for (String name : names) {
             cars.add(new Car(name));
         }
+    }
+
+    public static void determineNumberOfAttempts() {
+        numberOfAttempts = Input.inputNumberOfAttempts();
     }
 }
