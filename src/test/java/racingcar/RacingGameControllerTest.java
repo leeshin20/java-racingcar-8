@@ -17,4 +17,17 @@ public class RacingGameControllerTest {
         assertThat(firstCar.getName()).isEqualTo("test");
         assertThat(SecondCar.getName()).isEqualTo("test2");
     }
+
+    @Test
+    void 최고점수_판별_테스트() {
+        ArrayList<Car> cars = new ArrayList<>();
+        cars.add(new Car("test"));
+        cars.add(new Car("test2"));
+        Car firstCar = cars.get(0);
+        Car SecondCar = cars.get(1);
+        firstCar.tryMoveForward(9);
+        Integer highScore = RacingGameController.findHighScore(cars);
+        assertThat(highScore).isEqualTo(1);
+        assertThat(firstCar.getRaceScore()).isEqualTo(highScore);
+    }
 }
