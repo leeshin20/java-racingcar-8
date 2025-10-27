@@ -10,7 +10,17 @@ public class Car {
         raceScore = 0;
     }
 
+    public void tryMoveForward(Integer random) {
+        if (random >= FORWARD_CONSTANT) {
+            raceScore += 1;
+        }
+    }
+
     public String getName() {
         return name;
+    }
+
+    public Integer getRaceScore() {
+        return raceScore;
     }
 }
