@@ -29,10 +29,12 @@ public class RacingGameController {
 
     public static void runRace() {
         Output.displayResult();
-        for (int i = 0; i<numberOfAttempts; i++) {
+        for (int i = 0; i < numberOfAttempts; i++) {
             tryOneAttempt(cars);
             Output.displayProgress(cars);
         }
+        ArrayList<String> winners = findWinner(cars);
+        Output.displayWinner(winners);
     }
 
     public static void tryOneAttempt(ArrayList<Car> cars) {
@@ -45,11 +47,22 @@ public class RacingGameController {
         return Randoms.pickNumberInRange(0, 9);
     }
 
+    public static ArrayList<String> findWinner(ArrayList<Car> cars) {
+        ArrayList<String> winners = new ArrayList<>();
+        Integer highScore = findHighScore(cars);
+        for (Car car : cars) {
+            if (car.getRaceScore().equals(highScore)) {
+                winners.add(car.getName());
+            }
+        }
+        return winners;
+    }
+
     public static Integer findHighScore(ArrayList<Car> cars) {
         Integer highScore = 0;
-        for(Car car: cars) {
+        for (Car car : cars) {
             Integer score = car.getRaceScore();
-            if(score > highScore) {
+            if (score > highScore) {
                 highScore = score;
             }
         }
