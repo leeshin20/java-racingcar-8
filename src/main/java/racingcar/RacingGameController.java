@@ -29,7 +29,7 @@ public class RacingGameController {
 
     public static void runRace() {
         Output.displayResult();
-        for (int i = 1; i<numberOfAttempts; i++) {
+        for (int i = 0; i<numberOfAttempts; i++) {
             tryOneAttempt(cars);
         }
     }
